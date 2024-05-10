@@ -4,15 +4,16 @@
 		{
 			"type": "shell",
 			"label": "config",
-			"command": "pixi run config",
+			"command": "BUILD_DIR=${workspaceFolder}/build SRC_DIR=${workspaceFolder} pixi run config",
 			"presentation": {
 				"reveal": "silent"
-			}
+			},
+			"problemMatcher": []
 		},
 		{
 			"type": "shell",
 			"label": "build",
-			"command": "pixi run build",
+			"command": "BUILD_DIR=${workspaceFolder}/build pixi run build",
 			"problemMatcher": [
 				"$gcc"
 			],
@@ -20,11 +21,12 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"dependsOn": ["config"], 
+			"dependsOn": [
+				"config"
+			],
 			"presentation": {
 				"reveal": "silent"
 			}
 		}
-		
 	]
 }

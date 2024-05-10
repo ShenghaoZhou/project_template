@@ -7,6 +7,6 @@ channels = ["conda-forge"]
 platforms = ["linux-64"]
 
 [tasks]
-config="cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_COLOR_DIAGNOSTICS=1 -GNinja"
-build="cmake --build build -j"
+config="echo \"Config Project: $SRC_DIR\" && cmake -B $BUILD_DIR -S $SRC_DIR -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_COLOR_DIAGNOSTICS=1 -GNinja"
+build="echo \"Build Project: $BUILD_DIR\" && cmake --build $BUILD_DIR -j"
 [dependencies]
