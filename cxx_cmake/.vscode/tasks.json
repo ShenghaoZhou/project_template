@@ -5,6 +5,9 @@
 			"type": "shell",
 			"label": "config",
 			"command": "pixi run config",
+			"presentation": {
+				"reveal": "silent"
+			}
 		},
 		{
 			"type": "shell",
@@ -17,8 +20,11 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"dependsOn": ["config"]
-		},
+			"dependsOn": ["config"], 
+			"presentation": {
+				"reveal": "silent"
+			}
+		}
 		
 	]
 }
