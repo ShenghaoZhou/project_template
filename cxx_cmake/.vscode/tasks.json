@@ -4,7 +4,16 @@
 		{
 			"type": "shell",
 			"label": "config",
-			"command": "BUILD_DIR=${workspaceFolder}/build SRC_DIR=${workspaceFolder} pixi run config",
+			"command": "BUILD_DIR=${workspaceFolder}/build SRC_DIR=${workspaceFolder} pixi run config -DCMAKE_BUILD_TYPE=Release",
+			"presentation": {
+				"reveal": "silent"
+			},
+			"problemMatcher": []
+		},
+		{
+			"type": "shell",
+			"label": "config_debug",
+			"command": "BUILD_DIR=${workspaceFolder}/build SRC_DIR=${workspaceFolder} pixi run config -DCMAKE_BUILD_TYPE=Debug",
 			"presentation": {
 				"reveal": "silent"
 			},
@@ -23,6 +32,24 @@
 			},
 			"dependsOn": [
 				"config"
+			],
+			"presentation": {
+				"reveal": "silent"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "build_debug",
+			"command": "BUILD_DIR=${workspaceFolder}/build pixi run build",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"dependsOn": [
+				"config_debug"
 			],
 			"presentation": {
 				"reveal": "silent"
